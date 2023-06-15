@@ -1,7 +1,7 @@
-<body class="b">
+<body>
 
 <nav class="nav">
-    <h1>Shoe E-COMM Site</h1>
+    <h1>Shoe Site</h1>
     <div class="nav-search" >
         <input type = "text" placeholder="Search for Products"/>
         <button class="btn">Search</button>
@@ -16,17 +16,58 @@
 
 
 <hr>
+    <h2>Best Sellers</h2>
+        <div class="product-container">
+            <div *ngFor="let shoe of shoes" class="product-card">
 
-<div>
-    <h2>Products</h2>
-        <!-- Assuming shoes is an array of IProduct objects -->
-            <div *ngFor="let shoe of shoes">
-                <span class="id">{{shoe.id}}</span>
-                <span class="name">{{shoe.name}}</span>
-                <span class="description">{{shoe.description}}</span>
+              <div class="row">
+                <img class="value" [src]="shoe.image" alt="Product Image" />
+              </div>  
+              <div class="row">
+                <span class="label">ID:</span>
+                <span class="value">{{shoe.id}}</span>
+              </div>
+              <div class="row">
+                <span class="label">Name:</span>
+                <span class="value">{{shoe.name}}</span>
+              </div>
+              <div class="row">
+                <span class="label">Description:</span>
+                <span class="value">{{shoe.description}}</span>
+              </div>
+              <div class="row">
+                <span class="label">Price:</span>
+                <span class="value">{{shoe.price}}</span>
+              </div>
             </div>
-    
-</div>
+          </div>
+
+<hr>
+    <h2>New arrival</h2>     
+    <div class="product-container">
+        <div *ngFor="let shoe of shoes" class="product-card">
+        <div class="row">
+                <span class="label">IMG</span>
+                <!-- <img class="value" [src]="shoe.image" alt="Product Image" /> -->
+        </div>  
+          <div class="row">
+            <span class="label">ID:</span>
+            <span class="value">{{shoe.id}}</span>
+          </div>
+          <div class="row">
+            <span class="label">Name:</span>
+            <span class="value">{{shoe.name}}</span>
+          </div>
+          <div class="row">
+            <span class="label">Description:</span>
+            <span class="value">{{shoe.description}}</span>
+          </div>
+          <div class="row">
+            <span class="label">Price:</span>
+            <span class="value">{{shoe.price}}</span>
+          </div>
+        </div>
+      </div>
 
 </body>
 
