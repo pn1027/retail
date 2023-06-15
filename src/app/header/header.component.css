@@ -1,0 +1,50 @@
+.nav{
+    display :flex;
+    justify-content: space-between;
+    } 
+
+.nav h1{
+        color: yellowgreen;
+        margin-top: 0px;
+        font-size: 30px;
+}
+
+.nav ul{
+    display :inline-flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav li{
+    padding-left: 5%;
+}
+
+.nav li a{
+    text-decoration: none;
+    color:darkgreen
+    
+}
+
+  .nav .nav-search input{
+    flex:1;
+    color: indianred;
+    border: 1px solid green ;
+    height: 50%;
+    border-right: 0%;
+    
+  }
+
+  .nav .nav-search button{
+    flex:1;
+    color: indianred;
+    border: 1px solid green ;
+    height: 55%;
+    border-left: 0%;
+  }
+
+
+  /* .id {
+
+  } */
+  
