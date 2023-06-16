@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Products } from '../mock-products';
+import { Products, newProducts } from '../mock-products';
 
 @Component({
   selector: 'app-header',
@@ -7,5 +7,6 @@ import { Products } from '../mock-products';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  shoes = Products;
+  shoes = Products ;
+  newshoes = newProducts;
 }
