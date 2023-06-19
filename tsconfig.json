@@ -7,6 +7,19 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
+    "paths": {
+      "Productlayout": [
+        "dist/productlayout",
+        "projects/productlayout",
+        "projects/productlayout/src/public-api"
+
+      ],
+      "header": [
+        "dist/header",
+        "projects/header",
+        "projects/header/src/public-api"
+      ]
+    },
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
