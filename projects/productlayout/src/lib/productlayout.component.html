@@ -1,52 +1,55 @@
 <hr>
-    <h2>Best Sellers</h2>
-        <div class="product-container">
-            <div *ngFor="let shoe of bestSellers" class="product-card">
-
-              <div class="row">
-                <img class="value" [src]="shoe.image" alt="Product Image" />
-              </div>  
-              <div class="row">
-                <span class="label">ID:</span>
-                <span class="value">{{shoe.id}}</span>
-              </div>
-              <div class="row">
-                <span class="valuedescription">{{shoe.name}}</span>
-              </div>
-              <div class="row">
-                <span class="label">Description:</span>
-                <span class="value">{{shoe.description}}</span>
-              </div>
-              <div class="row">
-                <span class="label">Price:</span>
-                <span class="value">{{shoe.price}}</span>
-              </div>
-            </div>
-          </div>
+<h2>Best Sellers</h2>
+<div class="product-container">
+  <div *ngFor="let shoe of bestSellers" class="product-card">
+    <div class="row">
+      <img class="value" [src]="shoe.image" alt="Product Image" />
+    </div>
+    <div class="row">
+      <span class="label">ID:</span>
+      <span class="value">{{shoe.id}}</span>
+    </div>
+    <div class="row">
+      <span class="valuedescription">{{shoe.name}}</span>
+    </div>
+    <div class="row">
+      <span class="label">Description:</span>
+      <span class="valuedescription">{{shoe.description}}</span>
+    </div>
+    <div class="row">
+      <span class="label">Price:</span>
+      <span class="value">{{shoe.price}}</span>
+    </div>
+    <button (click)="addToCart(shoe)">Add to Cart</button>
+    <button (click)="removeFromCart(shoe)">Remove</button>
+    <button (click)="clearCart()">Clear Cart</button>
+  </div>
+</div>
 
 <hr>
-    <h2>New arrival</h2>     
-    <div class="product-container">
-      <div *ngFor="let shoe of  newArrivals" class="product-card">
-        <div class="row">
-          <img class="value" [src]="shoe.image" alt="Product Image" />
-        </div>  
-        <div class="row">
-          <span class="label">ID:</span>
-          <span class="value">{{shoe.id}}</span>
-        </div>
-        <div class="row">
-          <span class="valuedescription">{{shoe.name}}</span>
-        </div>
-        <div class="row">
-          <span class="label">Description:</span>
-          <span class="value">{{shoe.description}}</span>
-        </div>
-        <div class="row">
-          <span class="label">Price:</span>
-          <span class="value">{{shoe.price}}</span>
-        </div>
-      </div>
+<h2>New arrival</h2>
+<div class="product-container">
+  <div *ngFor="let shoe of newArrivals" class="product-card">
+    <div class="row">
+      <img class="value" [src]="shoe.image" alt="Product Image" />
     </div>
-
-
+    <div class="row">
+      <span class="label">ID:</span>
+      <span class="value">{{shoe.id}}</span>
+    </div>
+    <div class="row">
+      <span class="valuedescription">{{shoe.name}}</span>
+    </div>
+    <div class="row">
+      <span class="label">Description:</span>
+      <span class="valuedescription">{{shoe.description}}</span>
+    </div>
+    <div class="row">
+      <span class="label">Price:</span>
+      <span class="value">{{shoe.price}}</span>
+    </div>
+    <button (click)="addToCart(shoe)">Add to Cart</button>
+    <button (click)="removeFromCart(shoe)">Remove</button>
+    <button (click)="clearCart()">Clear Cart</button>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Products } from './mock-products';
+import { CartService } from './cart.service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,26 @@ import { Products } from './mock-products';
 export class AppComponent {
   title = 'retail';
   products = Products;
+
+  constructor(private cartService: CartService) { }
+
+  addToCart(product: any): void {
+    this.cartService.addToCart(product);
+  }
+
+  removeFromCart(product: any): void {
+    this.cartService.removeFromCart(product);
+  }
+
+  clearCart(): void {
+    this.cartService.clearCart();
+  }
+
+  getCartItemCount(): number {
+    return this.cartService.getCartItemCount();
+  }
+
+  getCartItems(): any[] {
+    return this.cartService.getCartItems();
+  }
 }
