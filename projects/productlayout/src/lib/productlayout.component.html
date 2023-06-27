@@ -21,6 +21,7 @@
                 <span class="label">Price:</span>
                 <span class="value">{{shoe.price}}</span>
               </div>
+              <div class="i" (click)="openView(shoe.id)"><fa-icon [icon]="faInfoCircle"></fa-icon></div>
             </div>
           </div>
 
@@ -46,6 +47,7 @@
           <span class="label">Price:</span>
           <span class="value">{{shoe.price}}</span>
         </div>
+        <div class="i" (click)="openView(shoe.id)"><fa-icon [icon]="faInfoCircle"></fa-icon></div>
       </div>
     </div>
 

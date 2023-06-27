@@ -29,6 +29,10 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.i{
+  position: relative;
+  float: right;
+}
 
 .product-card {
   width: 250px;
