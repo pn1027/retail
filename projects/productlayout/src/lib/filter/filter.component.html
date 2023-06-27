@@ -1,0 +1,28 @@
+<div>
+    <!-- Filter options -->
+    <select [(ngModel)]="selectedSize">
+      <option value="">All Sizes</option>
+      <option *ngFor="let size of ['8', '9', '10']" [value]="size">{{ size }}</option>
+    </select>
+  
+    <select [(ngModel)]="selectedColor">
+      <option value="">All Colors</option>
+      <option *ngFor="let color of ['Red', 'Pink', 'Blue']" [value]="color">{{ color }}</option>
+    </select>
+  
+    <input type="text" [(ngModel)]="selectedPrice" placeholder="Max Price">
+  
+    <select [(ngModel)]="selectedBrand">
+      <option value="">All Brands</option>
+      <option *ngFor="let brand of ['Nike', 'Porsche', 'BMW', 'PUMA']" [value]="brand">{{ brand }}</option>
+    </select>
+  
+    <button (click)="handleFilter()">Filter</button>
+    <button (click)="handleReset()">Reset</button>
+  
+    <!-- Display filtered product names -->
+    <ul>
+      <li *ngFor="let shoe of filteredProducts">{{ shoe.name }}</li>
+    </ul>
+  </div>
+  

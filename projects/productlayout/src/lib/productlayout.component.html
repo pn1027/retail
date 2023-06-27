@@ -1,54 +1,4 @@
-<hr>
-    <h2>Best Sellers</h2>
-        <div class="product-container">
-            <div *ngFor="let shoe of bestSellers" class="product-card">
-
-              <div class="row">
-                <img class="value" [src]="shoe.image" alt="Product Image" />
-              </div>  
-              <div class="row">
-                <span class="label">ID:</span>
-                <span class="value">{{shoe.id}}</span>
-              </div>
-              <div class="row">
-                <span class="valuedescription">{{shoe.name}}</span>
-              </div>
-              <div class="row">
-                <span class="label">Description:</span>
-                <span class="value">{{shoe.description}}</span>
-              </div>
-              <div class="row">
-                <span class="label">Price:</span>
-                <span class="value">{{shoe.price}}</span>
-              </div>
-              <div class="i" (click)="openView(shoe.id)"><fa-icon [icon]="faInfoCircle"></fa-icon></div>
-            </div>
-          </div>
-
-<hr>
-    <h2>New arrival</h2>     
-    <div class="product-container">
-      <div *ngFor="let shoe of  newArrivals" class="product-card">
-        <div class="row">
-          <img class="value" [src]="shoe.image" alt="Product Image" />
-        </div>  
-        <div class="row">
-          <span class="label">ID:</span>
-          <span class="value">{{shoe.id}}</span>
-        </div>
-        <div class="row">
-          <span class="valuedescription">{{shoe.name}}</span>
-        </div>
-        <div class="row">
-          <span class="label">Description:</span>
-          <span class="value">{{shoe.description}}</span>
-        </div>
-        <div class="row">
-          <span class="label">Price:</span>
-          <span class="value">{{shoe.price}}</span>
-        </div>
-        <div class="i" (click)="openView(shoe.id)"><fa-icon [icon]="faInfoCircle"></fa-icon></div>
-      </div>
+<lib-filter></lib-filter>
 <h2>Best Sellers</h2>
 <div class="product-container">
   <div *ngFor="let shoe of bestSellers" class="product-card">
@@ -73,7 +23,7 @@
     <button class="button add" (click)="addToCart(shoe)">+</button>
     <span class="cart-count">{{ getCartItemQuantity(shoe) }}</span>
     <button class="button remove" (click)="removeFromCart(shoe)">-</button>
-    
+    <div class="i" (click)="openView(shoe.id)"><fa-icon [icon]="faInfoCircle"></fa-icon></div>
   </div>
 </div>
 
@@ -102,6 +52,6 @@
     <button class="button add" (click)="addToCart(shoe)">+</button>
     <span class="cart-count">{{ getCartItemQuantity(shoe) }}</span>
     <button class="button remove" (click)="removeFromCart(shoe)">-</button>
-
+    <div class="i" (click)="openView(shoe.id)"><fa-icon [icon]="faInfoCircle"></fa-icon></div>
   </div>
 </div>

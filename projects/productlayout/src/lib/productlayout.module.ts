@@ -6,12 +6,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { OpenProductViewModalComponent } from './modal/open-product/open-product-view-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { FilterComponent } from './filter/filter.component';
+
 
 
 @NgModule({
   declarations: [
     ProductlayoutComponent,
-    OpenProductViewModalComponent
+    OpenProductViewModalComponent,
+    FilterComponent
   ],
   imports: [
     FormsModule, //For Ngfor 

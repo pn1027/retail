@@ -6,7 +6,7 @@ import { HeaderModule } from 'header';
 import { ProductlayoutModule } from 'Productlayout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CarouselComponent } from 'projects/productlayout/src/lib/modal/carousel/carousel.component';
+
 
 @NgModule({
   declarations: [
@@ -18,8 +18,7 @@ import { CarouselComponent } from 'projects/productlayout/src/lib/modal/carousel
     HeaderModule,
     ProductlayoutModule,
     FontAwesomeModule,
-    NgbModule,
-    CarouselComponent
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
