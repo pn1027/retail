@@ -13,15 +13,20 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    this.cartItems = this.cartService.getCartItems();
+    this.updateCartItems();
   }
 
   addToCart(product: IProduct): void {
     this.cartService.addToCart(product);
+    this.updateCartItems();
   }
 
   removeFromCart(product: IProduct): void {
     this.cartService.removeFromCart(product);
+    this.updateCartItems();
+  }
+
+  updateCartItems(): void {
     this.cartItems = this.cartService.getCartItems();
   }
 
@@ -30,10 +35,17 @@ export class CartComponent implements OnInit {
   }
 
   getCartItems(): IProduct[] {
-    return this.cartService.getCartItems();
+    return this.cartItems;
   }
 
   clearCart(): void {
     this.cartService.clearCart();
+    this.updateCartItems();
+  }
+
+  isCartDropdownOpen: boolean = false;
+
+  toggleCartDropdown() {
+    this.isCartDropdownOpen = !this.isCartDropdownOpen;
   }
 }

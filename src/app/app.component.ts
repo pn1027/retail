@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Products } from './mock-products';
 import { CartService } from './cart.service';
+import { IProduct } from './models/product';
 
 @Component({
   selector: 'app-root',
@@ -32,4 +33,9 @@ export class AppComponent {
   getCartItems(): any[] {
     return this.cartService.getCartItems();
   }
+
+  getCartItemQuantity(product: IProduct): number {
+    return this.cartService.getCartItemQuantity(product);
+  }
+ 
 }

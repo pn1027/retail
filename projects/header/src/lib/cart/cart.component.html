@@ -1,9 +1,24 @@
-  <ul>
-    <li><a href="#">Cart({{ getCartItemCount() }})</a></li>
-    <!-- <li *ngFor="let item of cartItems">
-        {{ item.name }} - {{ item.price }}
-        <button (click)="removeFromCart(item)">Remove</button>
-      </li> -->  
-  </ul>
-  
+
+
+
+<!-- ------------------------------------------ -->
+
+<ul>
+  <li>
+    <a href="#" (click)="toggleCartDropdown()">Cart({{ getCartItemCount() }})</a>
+    <div class="cart-dropdown-overlay" [class.open]="isCartDropdownOpen" (click)="toggleCartDropdown()"></div>
+    <div class="cart-dropdown" [class.open]="isCartDropdownOpen">
+      <div class="product-list">
+        <div *ngFor="let item of cartItems" class="product-item">
+          <div class="product-details">
+            <span class="product-name">{{ item.name }}</span>
+            <span class="product-price">{{ item.price }}</span>
+            <!-- Add other product details here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+
   

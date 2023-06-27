@@ -22,9 +22,15 @@ export class ProductlayoutComponent implements OnInit {
   addToCart(product: IProduct): void {
     this.cartService.addToCart(product);
   }
-
   removeFromCart(product: IProduct): void {
     this.cartService.removeFromCart(product);
+  }
+  clearCart(): void {
+    this.cartService.clearCart();
+  }
+
+  getCartItemQuantity(product: IProduct): number {
+    return this.cartService.getCartItemQuantity(product);
   }
 
   getCartItemCount(): number {
@@ -35,7 +41,4 @@ export class ProductlayoutComponent implements OnInit {
     return this.cartService.getCartItems();
   }
 
-  clearCart(): void {
-    this.cartService.clearCart();
-  }
 }

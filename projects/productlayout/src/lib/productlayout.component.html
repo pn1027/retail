@@ -20,9 +20,10 @@
       <span class="label">Price:</span>
       <span class="value">{{shoe.price}}</span>
     </div>
-    <button (click)="addToCart(shoe)">Add to Cart</button>
-    <button (click)="removeFromCart(shoe)">Remove</button>
-    <button (click)="clearCart()">Clear Cart</button>
+    <button class="button add" (click)="addToCart(shoe)">+</button>
+    <span class="cart-count">{{ getCartItemQuantity(shoe) }}</span>
+    <button class="button remove" (click)="removeFromCart(shoe)">-</button>
+    
   </div>
 </div>
 
@@ -48,8 +49,9 @@
       <span class="label">Price:</span>
       <span class="value">{{shoe.price}}</span>
     </div>
-    <button (click)="addToCart(shoe)">Add to Cart</button>
-    <button (click)="removeFromCart(shoe)">Remove</button>
-    <button (click)="clearCart()">Clear Cart</button>
+    <button class="button add" (click)="addToCart(shoe)">+</button>
+    <span class="cart-count">{{ getCartItemQuantity(shoe) }}</span>
+    <button class="button remove" (click)="removeFromCart(shoe)">-</button>
+
   </div>
 </div>
