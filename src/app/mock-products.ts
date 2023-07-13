@@ -9,7 +9,7 @@ export const Products: IProduct[] = [
     price: 5499,
     quantity: 0,
     brand: 'Nike',
-    color: ['Red', 'Pink', 'blue'],
+    color: ['Red', 'Pink', 'Blue'],
     size: [8, 9, 10] // Example of multiple sizes for the shoe
   },
   { 
@@ -20,7 +20,7 @@ export const Products: IProduct[] = [
     price: 7499,
     quantity: 0,
     brand: 'Nike',
-    color: ['Red', 'Pink', 'blue'],
+    color: ['Red', 'Grey', 'Black'],
     size: [4, 5, 6] // Example of multiple sizes for the shoe
   },
   { 
@@ -31,7 +31,7 @@ export const Products: IProduct[] = [
     price: 8999,
     quantity: 0,
     brand: 'Nike',
-    color: ['Red', 'Pink', 'blue'],
+    color: ['Red', 'Purple', 'Black'],
     size: [7, 8, 9] // Example of multiple sizes for the shoe
   },
   { 
@@ -42,7 +42,7 @@ export const Products: IProduct[] = [
     price: 8799,
     quantity: 0,
     brand: 'Porsche',
-    color: ['Red', 'Pink', 'blue'],
+    color: ['Red', 'Yellow', 'Blue'],
     size: [9, 10, 11] // Example of multiple sizes for the shoe
   },
   { 
@@ -53,7 +53,7 @@ export const Products: IProduct[] = [
     price: 5499,
     quantity: 0,
     brand: 'BMW',
-    color: ['Red', 'Pink', 'blue'],
+    color: ['Yellow', 'Pink', 'Black'],
     size: [8, 9, 10] // Example of multiple sizes for the shoe
   },
   { 
@@ -64,7 +64,7 @@ export const Products: IProduct[] = [
     price: 7499,
     quantity: 0,
     brand: 'PUMA',
-    color: ['Red', 'Pink', 'blue'],
+    color: ['Red', 'Pink', 'Blue'],
     size: [6, 7, 8] // Example of multiple sizes for the shoe
   },
   { 

@@ -1,0 +1,26 @@
+<p></p>
+
+<div class="small-width filter-options" [ngClass]="{'show': showOptions}">
+  <div class="dropdown">
+    <button class="btn btn-primary btn-sm dropdown-toggle narrow-button" type="button" (click)="toggleOptions()" aria-expanded="false">
+      Sorting
+      <span *ngIf="selectedSortOption !== 'default'" class="sorting-word">{{ getSortingWord() }}</span>
+    </button>
+  
+    <div class="dropdown-menu" [class.show]="showOptions" aria-labelledby="sortingDropdown">
+      <select [(ngModel)]="selectedSortOption" (ngModelChange)="handleSort()" class="form-select col-4">
+        <option value="none">Sort By</option>
+        <option value="lowToHigh">Price: Low to High</option>
+        <option value="highToLow">Price: High to Low</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
+<!-- Display the sorted products -->
+<div *ngFor="let shoe of shoes" class="product-card">
+  <!-- Display shoe data here -->
+</div>
+
+  

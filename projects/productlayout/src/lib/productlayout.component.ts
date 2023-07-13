@@ -13,14 +13,19 @@ import { CartService } from 'src/app/cart.service';
 export class ProductlayoutComponent implements OnInit {
   @Input() shoes: IProduct[] =[]; 
   bestSellers: IProduct[] =[];
+  originalbestSellers:IProduct[] =[];
   newArrivals: IProduct[] =[];
+  sortedShoes: any[] = []; // Initialize with an empty array
 
-  faInfoCircle = faInfoCircle;
-  constructor(private modalService: NgbModal, private cartService: CartService) {}
+
+faInfoCircle = faInfoCircle;
+filteredProducts: IProduct[] | undefined;
+constructor(private modalService: NgbModal, private cartService: CartService) {}
   
 
   ngOnInit() {
     this.bestSellers = this.shoes.slice(0, 4);
+    this.originalbestSellers = this.shoes.slice(0, 4);
     this.newArrivals = this.shoes.slice(4, 8);
   }
 
@@ -36,13 +41,14 @@ export class ProductlayoutComponent implements OnInit {
 
   }
 
-
   addToCart(product: IProduct): void {
     this.cartService.addToCart(product);
   }
+  
   removeFromCart(product: IProduct): void {
     this.cartService.removeFromCart(product);
   }
+  
   clearCart(): void {
     this.cartService.clearCart();
   }
@@ -59,4 +65,28 @@ export class ProductlayoutComponent implements OnInit {
     return this.cartService.getCartItems();
   }
 
+
+
+  applyFilter(predicate: (product: any) => boolean) {
+    this.bestSellers = this.originalbestSellers.filter(predicate);
+  }
+
+  applySort(sortOption: string): void {
+    switch (sortOption) {
+      case 'lowToHigh':
+        this.bestSellers.sort((a, b) => a.price - b.price);
+        break;
+      case 'highToLow':
+        this.bestSellers.sort((a, b) => b.price - a.price);
+        break;
+      default:
+        // Default sorting by product ID or any other property
+        this.bestSellers.sort((a, b) => a.id - b.id);
+        break;
+    }
+  }
 }
+
+
+
+

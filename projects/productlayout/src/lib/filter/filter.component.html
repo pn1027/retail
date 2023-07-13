@@ -1,28 +1,44 @@
-<div>
-    <!-- Filter options -->
-    <select [(ngModel)]="selectedSize">
-      <option value="">All Sizes</option>
-      <option *ngFor="let size of ['8', '9', '10']" [value]="size">{{ size }}</option>
-    </select>
-  
-    <select [(ngModel)]="selectedColor">
-      <option value="">All Colors</option>
-      <option *ngFor="let color of ['Red', 'Pink', 'Blue']" [value]="color">{{ color }}</option>
-    </select>
-  
-    <input type="text" [(ngModel)]="selectedPrice" placeholder="Max Price">
-  
-    <select [(ngModel)]="selectedBrand">
-      <option value="">All Brands</option>
-      <option *ngFor="let brand of ['Nike', 'Porsche', 'BMW', 'PUMA']" [value]="brand">{{ brand }}</option>
-    </select>
-  
-    <button (click)="handleFilter()">Filter</button>
-    <button (click)="handleReset()">Reset</button>
-  
-    <!-- Display filtered product names -->
-    <ul>
-      <li *ngFor="let shoe of filteredProducts">{{ shoe.name }}</li>
-    </ul>
+<div class="sandwich-button-container">
+  <button class="btn btn-primary btn-sm dropdown-toggle narrow-button" type="button" (click)="toggleOptions()" aria-expanded="false">
+    Filter Options
+  </button>
+</div>
+
+
+<div class="collapse filter-options small-width" [ngClass]="{'show': showOptions}">
+  <div class="row">
+    <div class="col-sm-3">
+      <select [(ngModel)]="selectedSize" multiple class="form-select form-select-sm">
+        <option value="">All Sizes</option>
+        <option *ngFor="let size of [8, 9, 10]" [value]="size">{{ size }}</option>
+      </select>
+    </div>
+    <div class="col-sm-3">
+      <select [(ngModel)]="selectedColor" multiple class="form-select form-select-sm">
+        <option value="">All Colors</option>
+        <option *ngFor="let color of ['Red', 'Pink', 'Blue','Purple','Grey', 'Black', 'Yellow']" [value]="color">{{ color }}</option>
+      </select>
+    </div>
+    <div class="col-sm-3">
+      <input type="text" [(ngModel)]="selectedPrice" placeholder="Max Price" class="form-control form-control-sm">
+    </div>
+    <div class="col-sm-3">
+      <select [(ngModel)]="selectedBrand" multiple class="form-select form-select-sm">
+        <option value="">All Brands</option>
+        <option *ngFor="let brand of ['Nike', 'Porsche', 'BMW', 'PUMA']" [value]="brand">{{ brand }}</option>
+      </select>
+    </div>
   </div>
-  
+
+  <div class="row">
+    <div class="col-sm-12">
+      <button (click)="handleFilter()" class="btn btn-primary btn-sm">Filter</button>
+      <button (click)="handleReset()" class="btn btn-secondary btn-sm">Reset</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- mutiple select third party -->

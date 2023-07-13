@@ -1,7 +1,10 @@
-<lib-filter></lib-filter>
+<lib-filter (filterChange)="applyFilter($event)"></lib-filter>
+<lib-sorting [shoes]="shoes" (sortChange)="applySort($event)"></lib-sorting>
+
 <h2>Best Sellers</h2>
 <div class="product-container">
-  <div *ngFor="let shoe of bestSellers" class="product-card">
+  <div *ngFor="let shoe of (bestSellers.concat(sortedShoes))" class="product-card">
+    <!-- Display shoe data here -->
     <div class="row">
       <img class="value" [src]="shoe.image" alt="Product Image" />
     </div>
@@ -26,6 +29,8 @@
     <div class="i" (click)="openView(shoe.id)"><fa-icon [icon]="faInfoCircle"></fa-icon></div>
   </div>
 </div>
+
+
 
 <hr>
 <h2>New arrival</h2>

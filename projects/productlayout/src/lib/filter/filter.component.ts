@@ -1,6 +1,4 @@
-import { CartService } from 'src/app/cart.service';
-import { Component, Input } from '@angular/core';
-import { IProduct } from 'src/app/models/product';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'lib-filter',
@@ -8,39 +6,84 @@ import { IProduct } from 'src/app/models/product';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent {
-  @Input() products: IProduct[] = [];
-  filteredProducts: IProduct[] = [];
-  selectedSize: string = '';
-  selectedColor: string = '';
-  selectedPrice: string = '';
-  selectedBrand: string = '';
+  @Output() filterChange = new EventEmitter<any>();
 
-  constructor(private cartService: CartService) {}
+  selectedSize: string[] = [];
+  selectedColor!: string[];
+  selectedPrice!: string;
+  selectedBrand!: string;
 
-  handleFilter() {
-    console.log("handleFilter() called");
-    this.filteredProducts = this.products.filter((product) => {
-      const selectedColorLower = this.selectedColor.toLowerCase();
-      const productColorsLower = product.color.map(color => color.toLowerCase());
-  
-      if (
-        (this.selectedSize === '' || product.size.includes(Number(this.selectedSize))) &&
-        (this.selectedColor === '' || productColorsLower.includes(selectedColorLower)) &&
-        (this.selectedPrice === '' || product.price <= Number(this.selectedPrice)) &&
-        (this.selectedBrand === '' || product.brand === this.selectedBrand)
-      ) {
-        return true;
-      }
-      return false;
-    });
+  showOptions = false;
+
+  toggleOptions(): void {
+    this.showOptions = !this.showOptions;
   }
-  
 
-  handleReset() {
-    this.selectedSize = '';
-    this.selectedColor = '';
+  handleFilter(): void {
+    if (this.showOptions) {
+      this.filterChange.emit(this.predicate);
+    }
+  }
+
+  handleReset(): void {
+    this.selectedSize = [];
+    this.selectedColor = [];
     this.selectedPrice = '';
     this.selectedBrand = '';
-    this.filteredProducts = [];
+    this.handleFilter();
+  }
+
+  private predicate = (product: any) => {
+    let condition = true;
+  
+    if (!this.isFalsyValue(this.selectedSize)) {
+      const selectedSizes = this.selectedSize.map(size => +size);
+      condition = selectedSizes.every(size => product.size.includes(size));
+    }
+  
+    if (!this.isFalsyValue(this.selectedColor)) {
+      condition = condition && this.selectedColor.every(color => product.color.includes(color));
+    }
+
+
+    if (!this.isFalsyValue(this.selectedBrand)) {
+      condition = condition && this.selectedBrand.includes(product.brand);
+    }
+
+    if (!this.isFalsyValue(this.selectedPrice)) {
+      const maxPrice = parseFloat(this.selectedPrice);
+      condition = condition && (!isNaN(maxPrice) && product.price <= maxPrice);
+    }
+
+  
+    return condition;
+  };
+  
+
+  private isFalsyValue(value: any): boolean {
+    return [null, undefined, ''].includes(value.toString().trim());
   }
 }
+
+
+//-------------------------------------------------------------------------------------------------------
+
+// private predicate=(product:any)=>product.size.includes(this.selectedSize ? +this.selectedSize: null);
+
+
+
+//---------------------------------------------------------------------------------------------------------/ 
+
+// private predicate = (product: any) => {
+
+//   if (this.isfalsyvalue(this.selectedSize)) {
+//     // All sizes are selected, return true for all products
+//     return true;
+//   } else {
+//     // Check if the selected size is included in the product's size array
+//     return product.size.includes(+this.selectedSize);
+//   }
+// };
+
+
+// -----------------------------------------------------------------------------------------------------------

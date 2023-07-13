@@ -7,6 +7,8 @@ import { OpenProductViewModalComponent } from './modal/open-product/open-product
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { FilterComponent } from './filter/filter.component';
+import { SortingComponent } from './sorting/sorting.component';
+
 
 
 
@@ -14,7 +16,8 @@ import { FilterComponent } from './filter/filter.component';
   declarations: [
     ProductlayoutComponent,
     OpenProductViewModalComponent,
-    FilterComponent
+    FilterComponent,
+    SortingComponent
   ],
   imports: [
     FormsModule, //For Ngfor 

@@ -76,26 +76,14 @@
 }
 
 .button.add {
-  /* Remove float and add margin-right */
   background-color: black;
   color: white;
-  /* margin-right: 10px; */
 }
 
 .button.remove {
   background-color: #ff5722;
   color: white;
-  /* Remove float and add margin-left */
-  /* margin-left: 10px; */
 }
-
-/* .cart-count {
-  display: block;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 0px;
-} */
 
 .cart-count {
   margin-left: 10px; /* Add margin-left to create space between buttons */
