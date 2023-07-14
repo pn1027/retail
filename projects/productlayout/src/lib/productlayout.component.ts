@@ -14,6 +14,7 @@ export class ProductlayoutComponent implements OnInit {
   @Input() shoes: IProduct[] =[]; 
   bestSellers: IProduct[] =[];
   originalbestSellers:IProduct[] =[];
+  originalnewArrival:IProduct[] =[];
   newArrivals: IProduct[] =[];
   sortedShoes: any[] = []; // Initialize with an empty array
 
@@ -26,6 +27,7 @@ constructor(private modalService: NgbModal, private cartService: CartService) {}
   ngOnInit() {
     this.bestSellers = this.shoes.slice(0, 4);
     this.originalbestSellers = this.shoes.slice(0, 4);
+    this.originalnewArrival = this.shoes.slice(0, 4);
     this.newArrivals = this.shoes.slice(4, 8);
   }
 
@@ -69,19 +71,23 @@ constructor(private modalService: NgbModal, private cartService: CartService) {}
 
   applyFilter(predicate: (product: any) => boolean) {
     this.bestSellers = this.originalbestSellers.filter(predicate);
+    this.newArrivals = this.originalnewArrival.filter(predicate);
   }
 
   applySort(sortOption: string): void {
     switch (sortOption) {
       case 'lowToHigh':
         this.bestSellers.sort((a, b) => a.price - b.price);
+        this.newArrivals.sort((a, b) => a.price - b.price);
         break;
       case 'highToLow':
         this.bestSellers.sort((a, b) => b.price - a.price);
+        this.newArrivals.sort((a, b) => b.price - a.price);
         break;
       default:
         // Default sorting by product ID or any other property
         this.bestSellers.sort((a, b) => a.id - b.id);
+        this.newArrivals.sort((a, b) => a.id - b.id);
         break;
     }
   }
